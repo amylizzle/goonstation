@@ -39,16 +39,14 @@
 	icon_state = "speech_smile"
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_smile")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_smile")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			var/list/instance = owner_say_tree.GetAccentBy("accent_smile")
-			if(length(instance))
-				owner_say_tree.RemoveAccent(instance[1])
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/list/instance = owner_say_tree.GetAccentBy("accent_smile")
+		if(length(instance))
+			owner_say_tree.RemoveAccent(instance[1])
 
 /datum/bioEffect/speech/elvis
 	name = "Frontal Gyrus Alteration Type-E"
@@ -66,14 +64,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_elvis")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_elvis")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_elvis"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_elvis"))
 
 /datum/bioEffect/speech/chav
 	name = "Frontal Gyrus Alteration Type-C"
@@ -91,14 +87,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_chav")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_chav")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_chav"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_chav"))
 
 /datum/bioEffect/speech/scots
 	name = "Frontal Gyrus Alteration Type-F"
@@ -117,14 +111,12 @@
 	var/danny_index = 0
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_scots")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_scots")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scots"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scots"))
 
 /datum/bioEffect/speech/swedish
 	name = "Frontal Gyrus Alteration Type-B"
@@ -142,14 +134,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_swedish")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_swedish")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_swedish"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_swedish"))
 
 /datum/bioEffect/speech/finnish
 	name = "Frontal Gyrus Alteration Type-FI"
@@ -167,14 +157,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_finnish")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_finnish")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_finnish"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_finnish"))
 
 /datum/bioEffect/speech/tommy // DO NOT MAKE THIS APPEAR IN GENEPOOLS OR INTO A TRAIT OR ANY OF THAT, PLEASE, THANK YOU IN ADVANCE - with love, haine
 	name = "Frontal Gyrus Alteration Type-T"
@@ -191,14 +179,12 @@
 	can_copy = FALSE
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_tommy")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_tommy")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_tommy"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_tommy"))
 
 /*
 /datum/bioEffect/speech/wonk // DO NOT MAKE THIS APPEAR IN GENEPOOLS OR INTO A TRAIT OR ANY OF THAT, PLEASE, THANK YOU IN ADVANCE - with love, haine
@@ -240,17 +226,15 @@
 	icon_state = "speech_clown"
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_smile")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_smile")
 		if (isliving(src.owner))
 			var/mob/living/L = src.owner
 			L.speechpopupstyle = "font-family: 'Comic Sans MS'; font-size: 8px;"
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_smile"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_smile"))
 		if (isliving(src.owner))
 			var/mob/living/L = src.owner
 			L.speechpopupstyle = ""
@@ -539,14 +523,12 @@
 		..()
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_zalgo")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_zalgo")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_zalgo"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_zalgo"))
 
 
 /datum/bioEffect/speech/void
@@ -572,14 +554,12 @@
 		..()
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_void")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_void")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_void"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_void"))
 
 /datum/bioEffect/speech/yee // DO NOT MAKE THIS APPEAR IN GENEPOOLS OR INTO A TRAIT OR ANY OF THAT, PLEASE, THANK YOU IN ADVANCE - with love, haine
 	name = "yee"
@@ -703,14 +683,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_uwu")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_uwu")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_uwu"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_uwu"))
 
 /datum/bioEffect/speech/literalowotalk
 	name = "Frontal Gyrus Alteration Type-OWO"
@@ -771,14 +749,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_quebecois")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_quebecois")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_quebecois"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_quebecois"))
 
 /datum/bioEffect/speech/tyke
 	name = "Frontal Gyrus Alteration Type-Y"
@@ -796,14 +772,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_yorkshire")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_yorkshire")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_yorkshire"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_yorkshire"))
 /datum/bioEffect/speech/scoob
 	name = "Frontal Gyrus Alteration Type-SD"
 	desc = "Forces the language center of the subject's brain to bark out sentences like a dog."
@@ -820,14 +794,12 @@
 	lockedTries = 3
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_scoob")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_scoob")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scoob"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scoob"))
 
 /datum/bioEffect/speech/scoob/less_dog
 	name = "Frontal Gyrus Alteration Type-BD" // bad dog 3=
@@ -849,14 +821,12 @@
 	acceptable_in_mutini = FALSE
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_scooby")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_scooby")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scooby"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scooby"))
 
 /datum/bioEffect/speech/thrall
 	name = "Frontal Gyrus Alteration Type-V"
@@ -971,14 +941,12 @@
 	msgLose = "You stop feeling like sailing the Seven Seas."
 
 	OnAdd()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.AddAccent("accent_pirate")
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.AddAccent("accent_pirate")
 
 	OnRemove()
-		if (ismob(src.owner))
-			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_pirate"))
+		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_pirate"))
 
 /datum/bioEffect/speech/scrambled
 	name = "Fonratl Guyrs Alrtateion Tpye-SC"
