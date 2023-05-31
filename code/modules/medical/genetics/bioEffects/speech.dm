@@ -46,7 +46,9 @@
 	OnRemove()
 		if (ismob(src.owner))
 			var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
-			owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_smile"))
+			var/list/instance = owner_say_tree.GetAccentBy("accent_smile")
+			if(length(instance))
+				owner_say_tree.RemoveAccent(instance[1])
 
 /datum/bioEffect/speech/elvis
 	name = "Frontal Gyrus Alteration Type-E"
