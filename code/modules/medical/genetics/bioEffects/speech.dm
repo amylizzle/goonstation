@@ -39,11 +39,11 @@
 	icon_state = "speech_smile"
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_smile")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		var/list/instance = owner_say_tree.GetAccentBy("accent_smile")
 		if(length(instance))
 			owner_say_tree.RemoveAccent(instance[1])
@@ -64,11 +64,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_elvis")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_elvis"))
 
 /datum/bioEffect/speech/chav
@@ -87,11 +87,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_chav")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_chav"))
 
 /datum/bioEffect/speech/scots
@@ -111,11 +111,11 @@
 	var/danny_index = 0
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_scots")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scots"))
 
 /datum/bioEffect/speech/swedish
@@ -134,11 +134,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_swedish")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_swedish"))
 
 /datum/bioEffect/speech/finnish
@@ -157,11 +157,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_finnish")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_finnish"))
 
 /datum/bioEffect/speech/tommy // DO NOT MAKE THIS APPEAR IN GENEPOOLS OR INTO A TRAIT OR ANY OF THAT, PLEASE, THANK YOU IN ADVANCE - with love, haine
@@ -179,11 +179,11 @@
 	can_copy = FALSE
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_tommy")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_tommy"))
 
 /*
@@ -226,14 +226,14 @@
 	icon_state = "speech_clown"
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_smile")
 		if (isliving(src.owner))
 			var/mob/living/L = src.owner
 			L.speechpopupstyle = "font-family: 'Comic Sans MS'; font-size: 8px;"
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_smile"))
 		if (isliving(src.owner))
 			var/mob/living/L = src.owner
@@ -523,11 +523,11 @@
 		..()
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_zalgo")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_zalgo"))
 
 
@@ -554,11 +554,11 @@
 		..()
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_void")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_void"))
 
 /datum/bioEffect/speech/yee // DO NOT MAKE THIS APPEAR IN GENEPOOLS OR INTO A TRAIT OR ANY OF THAT, PLEASE, THANK YOU IN ADVANCE - with love, haine
@@ -683,11 +683,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_uwu")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_uwu"))
 
 /datum/bioEffect/speech/literalowotalk
@@ -749,11 +749,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_quebecois")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_quebecois"))
 
 /datum/bioEffect/speech/tyke
@@ -772,11 +772,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_yorkshire")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_yorkshire"))
 /datum/bioEffect/speech/scoob
 	name = "Frontal Gyrus Alteration Type-SD"
@@ -794,11 +794,11 @@
 	lockedTries = 3
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_scoob")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scoob"))
 
 /datum/bioEffect/speech/scoob/less_dog
@@ -821,11 +821,11 @@
 	acceptable_in_mutini = FALSE
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_scooby")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_scooby"))
 
 /datum/bioEffect/speech/thrall
@@ -941,11 +941,11 @@
 	msgLose = "You stop feeling like sailing the Seven Seas."
 
 	OnAdd()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.AddAccent("accent_pirate")
 
 	OnRemove()
-		var/datum/speech_module_tree/owner_say_tree = src.owner.say_tree
+		var/datum/speech_module_tree/owner_say_tree = src.owner.ensure_say_tree()
 		owner_say_tree.RemoveAccent(owner_say_tree.GetAccentBy("accent_pirate"))
 
 /datum/bioEffect/speech/scrambled
