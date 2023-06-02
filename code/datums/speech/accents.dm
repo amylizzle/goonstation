@@ -43,10 +43,10 @@ TYPEINFO(/datum/speech_module/accent/pirate)
 		message.content = pirateify(message.content)
 		. = message
 
-TYPEINFO(/datum/speech_module/accent/quebecois)
-	id = "accent_quebecois"
-/datum/speech_module/accent/quebecois
-	id = "accent_quebecois"
+TYPEINFO(/datum/speech_module/accent/french)
+	id = "accent_french"
+/datum/speech_module/accent/french
+	id = "accent_french"
 
 	process(datum/say_message/message)
 		message.content = tabarnak(message.content)
@@ -61,13 +61,22 @@ TYPEINFO(/datum/speech_module/accent/russian)
 		message.content = russify(message.content)
 		. = message
 
-TYPEINFO(/datum/speech_module/accent/scooby)
-	id = "accent_scooby"
-/datum/speech_module/accent/scooby
-	id = "accent_scooby"
+TYPEINFO(/datum/speech_module/accent/scoob)
+	id = "accent_scoob"
+/datum/speech_module/accent/scoob
+	id = "accent_scoob"
 
 	process(datum/say_message/message)
 		message.content = scoobify(message.content)
+		. = message
+
+TYPEINFO(/datum/speech_module/accent/scoob_nerf)
+	id = "accent_scoob_nerf"
+/datum/speech_module/accent/scoob_nerf
+	id = "accent_scoob_nerf"
+
+	process(datum/say_message/message)
+		message.content = scoobify(message.content, TRUE)
 		. = message
 
 TYPEINFO(/datum/speech_module/accent/scots)
@@ -79,10 +88,10 @@ TYPEINFO(/datum/speech_module/accent/scots)
 		message.content = scotify(message.content)
 		. = message
 
-TYPEINFO(/datum/speech_module/accent/smile)
-	id = "accent_smile"
-/datum/speech_module/accent/smile
-	id = "accent_smile"
+TYPEINFO(/datum/speech_module/accent/smiling)
+	id = "accent_smiling"
+/datum/speech_module/accent/smiling
+	id = "accent_smiling"
 
 	process(datum/say_message/message)
 		message.content = smilify(message.content)
@@ -124,10 +133,10 @@ TYPEINFO(/datum/speech_module/accent/void)
 		message.content = voidSpeak(message.content)
 		. = message
 
-TYPEINFO(/datum/speech_module/accent/yorkshire)
-	id = "accent_yorkshire"
-/datum/speech_module/accent/yorkshire
-	id = "accent_yorkshire"
+TYPEINFO(/datum/speech_module/accent/tyke)
+	id = "accent_tyke"
+/datum/speech_module/accent/tyke
+	id = "accent_tyke"
 
 	process(datum/say_message/message)
 		message.content = yorkify(message.content)
