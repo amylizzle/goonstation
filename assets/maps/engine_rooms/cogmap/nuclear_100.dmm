@@ -17,9 +17,6 @@
 /turf/simulated/floor/engine/caution/north,
 /area/station/engine/inner)
 "cg" = (
-/obj/machinery/atmospherics/pipe/simple/insulated/cold{
-	can_rupture = 0
-	},
 /obj/machinery/light/small/floor/warm,
 /obj/machinery/atmospherics/pipe/manifold/overfloor{
 	dir = 4
@@ -59,7 +56,7 @@
 "jr" = (
 /obj/machinery/atmospherics/binary/valve{
 	dir = 4;
-	name = burn chamber bypass valve
+	name = burnchamberbypassvalve
 	},
 /turf/simulated/floor/engine,
 /area/station/engine/inner)
@@ -206,9 +203,6 @@
 /turf/simulated/floor/engine/caution/west,
 /area/station/engine/inner)
 "xq" = (
-/obj/machinery/atmospherics/pipe/simple/insulated/cold{
-	can_rupture = 0
-	},
 /obj/machinery/atmospherics/pipe/manifold/overfloor{
 	dir = 4
 	},
@@ -246,7 +240,6 @@
 /turf/simulated/floor/engine,
 /area/station/engine/inner)
 "Bm" = (
-/obj/machinery/atmospherics/pipe/simple/insulated/cold,
 /obj/machinery/atmospherics/binary/valve{
 	name = cold loop bypass valve
 	},
@@ -292,13 +285,6 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/insulated{
-	dir = 8
-	},
-/turf/simulated/floor/engine,
-/area/station/engine/inner)
-"HF" = (
-/obj/machinery/atmospherics/pipe/simple/insulated,
-/obj/machinery/atmospherics/pipe/manifold/overfloor{
 	dir = 8
 	},
 /turf/simulated/floor/engine,
@@ -367,13 +353,6 @@
 	},
 /turf/simulated/floor/engine/caution/east,
 /area/station/engine/inner)
-"Tp" = (
-/obj/machinery/atmospherics/pipe/simple/insulated,
-/obj/machinery/atmospherics/pipe/manifold/overfloor{
-	dir = 4
-	},
-/turf/simulated/floor/engine,
-/area/station/engine/inner)
 "TC" = (
 /obj/machinery/atmospherics/binary/valve{
 	dir = 4;
@@ -422,7 +401,7 @@ qO
 mt
 Ma
 xq
-HF
+eF
 Lh
 TM
 "}
@@ -448,7 +427,7 @@ rk
 AH
 fi
 Ma
-Tp
+xq
 Fg
 IG
 "}
