@@ -41,6 +41,16 @@ TYPEINFO(/datum/component/hallucination/random_image_override)
 	)
 
 
+TYPEINFO(/datum/component/hallucination/herobrine)
+	initialization_args = list(
+		ARG_INFO("timeout", DATA_INPUT_NUM, "how long this hallucination lasts in seconds. -1 for permanent", 30),
+		ARG_INFO("image_list", DATA_INPUT_LIST_BUILD, "List of images that the mob can hallucinate attached to things"),
+		ARG_INFO("name_list", DATA_INPUT_LIST_BUILD, "List of images that the mob can hallucinate attached to things"),
+		ARG_INFO("in_space", DATA_INPUT_BOOL, "Should this appear in space? If not, it will appear on floors in the station"),
+		ARG_INFO("image_prob", DATA_INPUT_NUM, "probability of an image being displayed per mob life tick", 10),
+	)
+
+
 //#########################################################
 //                HALLUCINATION COMPONENTS
 //#########################################################
@@ -342,6 +352,75 @@ ABSTRACT_TYPE(/datum/component/hallucination)
 			return TRUE //no duplicate
 		else
 			return FALSE //create a new hallucination
+
+
+//#########################################################
+//                       HEROBRINE
+//#########################################################
+	initialization_args = list(
+		ARG_INFO("timeout", DATA_INPUT_NUM, "how long this hallucination lasts in seconds. -1 for permanent", 30),
+		ARG_INFO("image_list", DATA_INPUT_LIST_BUILD, "List of images that the mob can hallucinate attached to things"),
+		ARG_INFO("name_list", DATA_INPUT_LIST_BUILD, "List of images that the mob can hallucinate attached to things"),
+		ARG_INFO("in_space", DATA_INPUT_BOOL, "Should this appear in space? If not, it will appear on floors in the station"),
+		ARG_INFO("image_prob", DATA_INPUT_NUM, "probability of an image being displayed per mob life tick", 10),
+	)
+/// Herobrine - hallucinate a person on the edge of your vision. Either in space, or on station. Different behaviours for space and not space.
+/datum/component/hallucination/herobrine
+	var/list/image_list
+	var/list/name_list
+	var/in_space = TRUE
+	var/image_prob = 10
+
+	///the object handle to the spooky vision we're doing, since we want to manipulate it
+	var/obj/spook
+
+	Initialize(timeout=30, image_list=null, name_list=null, in_space=TRUE, image_prob=10)
+		. = ..()
+		if(. == COMPONENT_INCOMPATIBLE || length(image_list) == 0 || length(name_list) == 0)
+			return .
+		src.image_list = image_list
+		src.name_list = name_list
+		src.image_prob = image_prob
+
+	do_mob_tick(mob,mult)
+		if(isnull(src.spook) && probmult(image_prob))
+			//pick a non dense turf in view
+			var/list/turf/potentials = block(parent_mob.loc+parent_mob.client.view/2,parent_mob.loc-parent_mob.client.view/2) -  block((parent_mob.loc+parent_mob.client.view/2)-1,(parent_mob.loc-parent_mob.client.view/2)+1)
+			if(src.in_space)
+				for(var/turf/T in potentials)
+					if(!istype(T, /turf/space))
+						potentials -= A
+			else
+				for(var/atom/A in (orange(parent_mob, src.range) - oview(parent_mob, src.range)))
+					for(var/type in src.target_list)
+						if(istype(A, type))
+							potentials += A
+			if(!length(potentials)) return
+			var/atom/halluc_loc = pick(potentials)
+			var/image/halluc = new /image()
+			var/image/copyfrom = pick(src.image_list)
+			halluc.appearance = copyfrom.appearance
+			halluc.loc = halluc_loc
+			halluc.override = src.override
+			parent_mob.client?.images += halluc
+			SPAWN(src.image_time SECONDS)
+				qdel(halluc)
+		. = ..()
+
+	CheckDupeComponent(timeout, image_list, target_list, range, image_prob, image_time, override, visible_creation)
+		if(image_list ~= src.image_list && src.target_list ~= target_list) //this is the same hallucination, just update timeout and prob, time
+			if(timeout == -1)
+				src.ttl = timeout
+			else if(src.ttl != -1)
+				src.ttl = world.time + timeout SECONDS //reset timeout
+			src.range = range
+			src.image_prob = image_prob
+			src.image_time = image_time
+			src.override = override
+			return TRUE //no duplicate
+		else
+			return FALSE //create a new hallucination
+
 
 //#########################################################
 //                    SUPPORTING CAST
