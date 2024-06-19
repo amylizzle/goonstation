@@ -5,6 +5,7 @@
 #define Z_LEVEL_SECRET 4	//! The Z-level used for secret things.
 #define Z_LEVEL_MINING 5	//! The mining Z-level. Trench on underwater maps
 #define Z_LEVEL_DYNAMIC 6	//! The Z-level used for dynamically loaded maps. See: region_allocator
+#define Z_LEVEL_TYPHON 2    //! The Z-level for Typhon's dynamic mining map
 
 ///Map generation defines
 #define PERLIN_LAYER_HEIGHT "perlin_height"

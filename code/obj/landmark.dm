@@ -521,6 +521,9 @@ var/global/list/job_start_locations = list()
 /obj/landmark/lrt/observatory
 	name = "Observatory"
 
+/obj/landmark/lrt/typhon_mining
+	name = "Typhon Mining Station"
+
 /obj/landmark/character_preview_spawn
 	name = LANDMARK_CHARACTER_PREVIEW_SPAWN
 

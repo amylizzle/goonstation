@@ -1770,6 +1770,7 @@ var/datum/preMapLoad/preMapLoad = new
 #include "code\modules\tutorials\blob_tutorial.dm"
 #include "code\modules\tutorials\flock_tutorial.dm"
 #include "code\modules\tutorials\tutorial_base.dm"
+#include "code\modules\typhonmining\mapgen.dm"
 #include "code\modules\unit_tests\_map_correctness.dm"
 #include "code\modules\unit_tests\_unit_tests.dm"
 #include "code\modules\vending\clothingbooth.dm"
