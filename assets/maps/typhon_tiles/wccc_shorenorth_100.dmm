@@ -2,6 +2,9 @@
 "a" = (
 /turf/unsimulated/nicegrass/random,
 /area/station/devzone)
+"I" = (
+/turf/unsimulated/greek/water,
+/area/station/devzone)
 
 (1,1,1) = {"
 a
@@ -21,7 +24,7 @@ a
 a
 "}
 (2,1,1) = {"
-a
+I
 a
 a
 a
@@ -38,8 +41,8 @@ a
 a
 "}
 (3,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -55,8 +58,8 @@ a
 a
 "}
 (4,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -72,8 +75,8 @@ a
 a
 "}
 (5,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -89,8 +92,8 @@ a
 a
 "}
 (6,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -106,8 +109,8 @@ a
 a
 "}
 (7,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -123,8 +126,8 @@ a
 a
 "}
 (8,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -140,8 +143,8 @@ a
 a
 "}
 (9,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -157,8 +160,8 @@ a
 a
 "}
 (10,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -174,8 +177,8 @@ a
 a
 "}
 (11,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -191,8 +194,8 @@ a
 a
 "}
 (12,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -208,8 +211,8 @@ a
 a
 "}
 (13,1,1) = {"
-a
-a
+I
+I
 a
 a
 a
@@ -225,7 +228,7 @@ a
 a
 "}
 (14,1,1) = {"
-a
+I
 a
 a
 a

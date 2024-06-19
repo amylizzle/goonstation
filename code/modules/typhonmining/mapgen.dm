@@ -13,7 +13,12 @@ var/global/datum/TyphonMiningController/typhonMiningController = new()
 			possibleTiles = get_map_prefabs(/datum/mapPrefab/TyphonTile)
 			//set the central tile, clear on all sides
 			tiles[10][10] = GetValidTile("c","c","c","c")
-			tiles[10][10].applyTo(GetTurfAtGridRef(10,10))
+			tiles[10][10].applyTo(GetTurfAtGridRef(10,10), DMM_OVERWRITE_MOBS | DMM_OVERWRITE_OBJS)
+			for(var/X in 9 to 11)
+				for(var/Y in 9 to 11)
+					if(X==Y==10)
+						continue
+					GenerateTile(X,Y)
 			//add the LRT landmark
 			new /obj/landmark/lrt/typhon_mining(locate(157,157,Z_LEVEL_TYPHON))
 
@@ -23,9 +28,9 @@ var/global/datum/TyphonMiningController/typhonMiningController = new()
 		var/S = null
 		var/W = null
 		if(X > 1)
-			var/datum/mapPrefab/TyphonTile/NTile = tiles[X-1][Y]
-			if(!isnull(NTile))
-				N = NTile.dirstates["E"]
+			var/datum/mapPrefab/TyphonTile/WTile = tiles[X-1][Y]
+			if(!isnull(WTile))
+				W = WTile.dirstates["E"]
 		if(X < 20)
 			var/datum/mapPrefab/TyphonTile/ETile = tiles[X+1][Y]
 			if(!isnull(ETile))
@@ -35,17 +40,15 @@ var/global/datum/TyphonMiningController/typhonMiningController = new()
 			if(!isnull(STile))
 				S = STile.dirstates["N"]
 		if(Y < 20)
-			var/datum/mapPrefab/TyphonTile/WTile = tiles[X][Y+1]
-			if(!isnull(WTile))
-				W = WTile.dirstates["S"]
+			var/datum/mapPrefab/TyphonTile/NTile = tiles[X][Y+1]
+			if(!isnull(NTile))
+				N = NTile.dirstates["S"]
 
 		tiles[X][Y] = GetValidTile(N,E,S,W)
-		tiles[X][Y].applyTo(GetTurfAtGridRef(X,Y))
+		tiles[X][Y].applyTo(GetTurfAtGridRef(X,Y), DMM_OVERWRITE_MOBS | DMM_OVERWRITE_OBJS)
 		if(X==10 && Y==10)
 			//replace the lrt landmark if it was deleted above
 			new /obj/landmark/lrt/typhon_mining(locate(157,157,Z_LEVEL_TYPHON))
-
-
 
 	proc/GetValidTile(N,E,S,W)
 		var/list/datum/mapPrefab/TyphonTile/foundTiles = list()
@@ -60,7 +63,7 @@ var/global/datum/TyphonMiningController/typhonMiningController = new()
 
 	proc/GetTurfAtGridRef(X,Y)
 		if(X > 0 && X <= 20 && Y > 0 && Y <= 20)
-			return locate((X-1)*15, (Y-1)*15, Z_LEVEL_TYPHON)
+			return locate(1+(X-1)*15, 1+(Y-1)*15, Z_LEVEL_TYPHON)
 		else
 			CRASH("Invalid grid ref [X] [Y] on Typhon map")
 
@@ -72,7 +75,7 @@ TYPEINFO(/datum/mapPrefab/TyphonTile)
 	///List of chars, indexed by dir [N,E,S,W]. State of each edge. c is clear, w is water
 	var/list/dirstates = list("N"="c", "E"="c","S"="c","W"="c")
 
-	generate_default_name()
+	post_init()
 		var/filename = filename_from_path(prefabPath, strip_extension=TRUE)
 		var/list/nameparts = splittext(filename,"_")
 		if(length(nameparts) != 3 && length(nameparts[1]) == 4)
