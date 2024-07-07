@@ -88,10 +88,10 @@ var/global/datum/TyphonMiningController/typhonMiningController = new()
 		//we need a new tile iff:
 		//there's a tile just coming in to range that nobody else can currently see that is not valid
 		var/mobTileX = round(M.loc.x/15)+1
-		var/mobTileY = round(M.loc.y/15)+1
+		var/mobTileY = 20 - round(M.loc.y/15) //y is flipped because tiles is top-left origin, byond locs are bottom-left origin
 		//are you closer to one edge or another
 		var/mobTileBiasX = sign((M.loc.x % 15) - 8)
-		var/mobTileBiasY = sign((M.loc.y % 15) - 8)
+		var/mobTileBiasY = -sign((M.loc.y % 15) - 8)
 
 		//we assume all tiles in the 3x3 centered on the player are already generated
 		if(mobTileBiasX != 0)
